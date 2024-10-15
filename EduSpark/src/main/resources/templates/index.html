@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduSpark - Take Your Knowledge to the Next Level</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1e1e1e;
+            color: white;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px; /* Reduced padding */
+            background-color: #252525;
+        }
+
+        .banner {
+            background: black;
+            height: 90vh; /* Adjusted height to reduce space */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .banner-content {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            padding: 30px 30px; /* Reduced horizontal padding */
+        }
+
+        .banner-text {
+            flex: 1;
+            padding-left: 90px;
+
+        }
+
+        h1 {
+            font-size: 42px; /* Slightly smaller font size */
+            margin-bottom: 10px; /* Reduced margin for less space */
+            color: #fff;
+        }
+
+        .highlight {
+            color: #00ffff;
+        }
+
+        .cta-buttons {
+            margin-top: 20px; /* Reduced margin to bring buttons closer */
+        }
+
+        .cta-buttons a {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 18px;
+            margin-right: 10px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .cta-buttons a:first-child {
+            background-color: #00ffff;
+            color: black;
+            border: none;
+        }
+
+        .cta-buttons a:last-child {
+            background-color: transparent;
+            color: white;
+            border: 1px solid white;
+        }
+
+        .featured-section {
+            padding: 30px 20px; /* Reduced padding */
+            background-color: #2f3640;
+        }
+
+        .featured-section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #00ffff;
+        }
+
+        .course-grid {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .course-card {
+            background-color: #252525;
+            border-radius: 10px;
+            overflow: hidden;
+            width: calc(25% - 20px);
+            margin-bottom: 20px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .course-card img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .course-card p {
+            color: #00ffff;
+            margin-top: 10px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: #1c1c1e;
+            color: #fff;
+        }
+    </style>
+
+</head>
+<body>
+<header style="display: flex; justify-content: space-between; align-items: center; padding: 20px; background-color: #252525;">
+    <div style="display: flex; align-items: center;">
+        <!--        <img src="/api/placeholder/40/40" alt="EduSpark logo" style="width: 40px; height: 40px;">-->
+        <span style="color: #00ffff; font-size: 24px; margin-left: 10px;">EduSpark</span>
+    </div>
+    <nav>
+        <a href="#" style="color: white; text-decoration: none; margin: 0 10px;">About</a>
+        <a href="#" style="color: white; text-decoration: none; margin: 0 10px;">Courses</a>
+        <a href="#" style="color: white; text-decoration: none; margin: 0 10px;">Pricing</a>
+        <a href="#" style="color: white; text-decoration: none; margin: 0 10px;">Webinar</a>
+        <a href="#" style="color: white; text-decoration: none; margin: 0 10px;">Contact</a>
+    </nav>
+</header>
+
+<div class="banner">
+    <div class="overlay"></div>
+    <div class="banner-content">
+        <div class="banner-text">
+            <h1>Take Your<br>Knowledge to the<br><span class="highlight" th:text="${userLogin}">Next Level</span></h1>
+            <p style="font-size: 18px; margin-bottom: 30px;">Anytime, anywhere to do discover yourself.<br>Your learning process and replace lame<br>method with fun and engaging ones.</p>
+            <div class="cta-buttons">
+                <a href="#">Get Started</a>
+                <a href="#">▶ Watch Now</a>
+            </div>
+        </div>
+        <div style="flex: 1; position: relative; padding-right: 60px;">
+            <img src="/css/images/student.png" alt="Student learning" style="width: 100%; height: auto;">
+            <div style="position: absolute; top: 0; right: 0; background-color: #333; padding: 10px; border-radius: 50%;">
+                <span style="color: #00ffff;">• • •</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="featured-section">
+    <h2>Featured Courses</h2>
+    <div class="course-grid">
+        <div class="course-card">
+            <img src="/api/placeholder/40/40" alt="Online Courses">
+            <p>Online Courses</p>
+        </div>
+        <div class="course-card">
+            <img src="/api/placeholder/40/40" alt="Expert Tutoring">
+            <p>Expert Tutoring</p>
+        </div>
+        <div class="course-card">
+            <img src="/api/placeholder/40/40" alt="Effective Method">
+            <p>Effective Method</p>
+        </div>
+        <div class="course-card">
+            <img src="/api/placeholder/40/40" alt="Interactive Learning">
+            <p>Interactive Learning</p>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <p>© 2024 EduSpark. All Rights Reserved.</p>
+    <p>Follow us on <i class="fab fa-instagram"></i> Instagram, <i class="fab fa-twitter"></i> Twitter, and <i class="fab fa-facebook"></i> Facebook</p>
+</footer>
+</body>
+</html>

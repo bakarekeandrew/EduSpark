@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create User - EduSpark Admin</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+</head>
+<body class="bg-gray-100">
+<nav class="bg-blue-600 p-4">
+  <div class="container mx-auto flex justify-between items-center">
+    <h1 class="text-white text-2xl font-bold">EduSpark Admin</h1>
+    <div>
+      <span th:text="${#authentication.name}">Username</span>
+      <a href="/logout" class="text-white hover:text-blue-200 ml-4">Logout</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container mx-auto mt-8">
+  <h2 class="text-2xl font-bold mb-4">Create New User</h2>
+
+  <form th:action="@{/create}" method="post" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+
+    <!-- Full Name -->
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="full_name">
+        Full Name
+      </label>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="full_name" type="text" name="full_name" required>
+    </div>
+
+    <!-- First Name -->
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="first_name">
+        First Name
+      </label>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="first_name" type="text" name="first_name" required>
+    </div>
+
+    <!-- Username -->
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+        Username
+      </label>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="username" required>
+    </div>
+
+    <!-- Email -->
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+        Email
+      </label>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" name="email" required>
+    </div>
+
+    <!-- Phone Number -->
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="phone_number">
+        Phone Number
+      </label>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="phone_number" type="tel" name="phone_number" required>
+    </div>
+
+    <!-- Date of Birth -->
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="dob">
+        Date of Birth
+      </label>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="dob" type="date" name="dob" required>
+    </div>
+
+    <!-- Password -->
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+        Password
+      </label>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" name="password" required>
+    </div>
+
+    <!-- Role -->
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="role">
+        Role
+      </label>
+      <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="role" name="role">
+        <option value="STUDENT">Student</option>
+        <option value="TEACHER">Teacher</option>
+        <option value="ADMIN">Admin</option>
+      </select>
+    </div>
+
+    <div class="flex items-center justify-between">
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+        Create User
+      </button>
+      <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="/admin/users">
+        Cancel
+      </a>
+    </div>
+  </form>
+</div>
+
+<footer class="bg-gray-200 mt-8 py-4">
+  <div class="container mx-auto text-center text-gray-600">
+    &copy; 2024 EduSpark. All rights reserved.
+  </div>
+</footer>
+</body>
+</html>
