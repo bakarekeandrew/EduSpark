@@ -11,7 +11,7 @@
     <div class="container mx-auto flex justify-between items-center">
         <h1 class="text-white text-2xl font-bold">EduSpark Admin</h1>
         <div>
-            <span th:text="${#authentication.name}" class="text-white mr-4">Username</span>
+            <span class="text-white mr-4">Username</span>
             <a href="/logout" class="text-white hover:text-blue-200">Logout</a>
         </div>
     </div>
@@ -39,16 +39,16 @@
         <div class="overflow-x-auto">
             <table class="min-w-full bg-white">
                 <thead>
-                <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                <tr class="border-b">
                     <th class="py-3 px-6 text-left">Username</th>
                     <th class="py-3 px-6 text-left">Email</th>
                     <th class="py-3 px-6 text-left">Roles</th>
                     <th class="py-3 px-6 text-center">Actions</th>
                 </tr>
                 </thead>
-                <tbody class="text-gray-600 text-sm font-light">
+                <tbody>
                 <tr th:each="user : ${users}" class="border-b border-gray-200 hover:bg-gray-100">
-                    <td class="py-3 px-6 text-left whitespace-nowrap" th:text="${user.username}">Username</td>
+                    <td class="py-3 px-6 text-left" th:text="${user.username}">Username</td>
                     <td class="py-3 px-6 text-left" th:text="${user.email}">Email</td>
                     <td class="py-3 px-6 text-left">
                             <span th:each="userRole : ${user.userRoles}" th:text="${userRole.role.name}"

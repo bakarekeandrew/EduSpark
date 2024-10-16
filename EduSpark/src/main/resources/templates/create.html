@@ -11,7 +11,7 @@
   <div class="container mx-auto flex justify-between items-center">
     <h1 class="text-white text-2xl font-bold">EduSpark Admin</h1>
     <div>
-      <span th:text="${#authentication.name}">Username</span>
+      <span>Admin</span>
       <a href="/logout" class="text-white hover:text-blue-200 ml-4">Logout</a>
     </div>
   </div>
@@ -23,20 +23,22 @@
   <form th:action="@{/create}" method="post" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
 
     <!-- Full Name -->
-    <div class="mb-4">
-      <label class="block text-gray-700 text-sm font-bold mb-2" for="full_name">
-        Full Name
-      </label>
-      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="full_name" type="text" name="full_name" required>
-    </div>
-
     <!-- First Name -->
     <div class="mb-4">
-      <label class="block text-gray-700 text-sm font-bold mb-2" for="first_name">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="first_name" required>
         First Name
       </label>
       <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="first_name" type="text" name="first_name" required>
     </div>
+
+    <!-- Last Name -->
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="last_name">
+        Last Name
+      </label>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="last_name" type="text" name="last_name" required>
+    </div>
+
 
     <!-- Username -->
     <div class="mb-4">
@@ -45,8 +47,6 @@
       </label>
       <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="username" required>
     </div>
-
-    <!-- Email -->
     <div class="mb-4">
       <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
         Email
@@ -54,7 +54,6 @@
       <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" name="email" required>
     </div>
 
-    <!-- Phone Number -->
     <div class="mb-4">
       <label class="block text-gray-700 text-sm font-bold mb-2" for="phone_number">
         Phone Number
@@ -75,26 +74,31 @@
       <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
         Password
       </label>
-      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" name="password" required>
+      <div class="relative">
+        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" name="password" required>
+        <button type="button" class="absolute right-2 top-2 text-gray-500 hover:text-gray-700" onclick="togglePassword()">
+          <i id="eye-icon" class="fas fa-eye"></i>
+        </button>
+      </div>
     </div>
 
     <!-- Role -->
-    <div class="mb-4">
-      <label class="block text-gray-700 text-sm font-bold mb-2" for="role">
-        Role
-      </label>
-      <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="role" name="role">
-        <option value="STUDENT">Student</option>
-        <option value="TEACHER">Teacher</option>
-        <option value="ADMIN">Admin</option>
-      </select>
-    </div>
+<!--    <div class="mb-4">-->
+<!--      <label class="block text-gray-700 text-sm font-bold mb-2" for="role">-->
+<!--        Role-->
+<!--      </label>-->
+<!--      <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="role" name="role">-->
+<!--        <option value="STUDENT">Student</option>-->
+<!--        <option value="TEACHER">Teacher</option>-->
+<!--        <option value="ADMIN">Admin</option>-->
+<!--      </select>-->
+<!--    </div>-->
 
     <div class="flex items-center justify-between">
       <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
         Create User
       </button>
-      <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="/admin/users">
+      <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="/admin">
         Cancel
       </a>
     </div>
@@ -106,5 +110,20 @@
     &copy; 2024 EduSpark. All rights reserved.
   </div>
 </footer>
+<script>
+  function togglePassword() {
+    var passwordField = document.getElementById('password');
+    var eyeIcon = document.getElementById('eye-icon');
+    if (passwordField.type === 'password') {
+      passwordField.type = 'text';
+      eyeIcon.classList.remove('fa-eye');
+      eyeIcon.classList.add('fa-eye-slash');
+    } else {
+      passwordField.type = 'password';
+      eyeIcon.classList.remove('fa-eye-slash');
+      eyeIcon.classList.add('fa-eye');
+    }
+  }
+</script>
 </body>
 </html>
